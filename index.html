@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADD300 Modern (C3) — Professional 2D CAD for macOS | Tetra720</title>
+    <meta name="description" content="Professional 2D CAD software for macOS. No subscription. Born from Buckminster Fuller's workshop, validated by Hughes Aircraft, rebuilt with AI. One-time purchase.">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            color: #1d1d1f;
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ===== LAYOUT ===== */
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 80px 0; }
+        .section-alt { background: #f5f5f7; }
+        .section-dark { background: #1d1d1f; color: #f5f5f7; }
+        .section-dark a { color: #64d2ff; }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+        h2 { font-size: 2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 16px; }
+        h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
+        .subtitle { font-size: 1.25rem; color: #6e6e73; line-height: 1.5; margin-top: 16px; }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #6e6e73;
+            margin-bottom: 8px;
+        }
+        .section-dark .section-label { color: #a1a1a6; }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 52px;
+        }
+        .nav-logo { font-weight: 700; font-size: 1.1rem; color: #1d1d1f; }
+        .nav-logo span { color: #0066cc; }
+        .nav-links { display: flex; gap: 28px; font-size: 0.85rem; }
+        .nav-links a { color: #1d1d1f; font-weight: 500; }
+        .nav-links a:hover { color: #0066cc; text-decoration: none; }
+        .nav-cta {
+            background: #0066cc; color: #fff !important; padding: 6px 16px;
+            border-radius: 18px; font-weight: 600; font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: #0055aa; text-decoration: none !important; }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding-top: 140px; padding-bottom: 80px;
+            text-align: center;
+            background: linear-gradient(180deg, #f5f5f7 0%, #fff 100%);
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 8px; }
+        .hero .tagline {
+            font-size: 1.5rem; font-weight: 400; color: #6e6e73;
+            margin-bottom: 32px;
+        }
+        .hero-badges {
+            display: flex; justify-content: center; gap: 12px;
+            flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 20px;
+            font-size: 0.82rem; font-weight: 500;
+            background: #fff; border: 1px solid #d2d2d7;
+            color: #1d1d1f;
+        }
+        .badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .hero-cta {
+            display: inline-block;
+            padding: 14px 32px; border-radius: 28px;
+            font-size: 1.1rem; font-weight: 600;
+            background: #0066cc; color: #fff;
+            transition: background 0.2s;
+            margin-bottom: 12px;
+        }
+        .hero-cta:hover { background: #0055aa; text-decoration: none; }
+        .hero-price { font-size: 0.9rem; color: #6e6e73; }
+
+        /* ===== IMAGE PLACEHOLDER ===== */
+        .img-placeholder {
+            background: #f0f0f2;
+            border: 2px dashed #c7c7cc;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: #8e8e93; font-size: 0.9rem; font-weight: 500;
+            text-align: center; padding: 24px;
+            min-height: 300px;
+        }
+        .img-placeholder.hero-img { min-height: 480px; max-width: 960px; margin: 40px auto 0; }
+        .img-placeholder.gallery-img { min-height: 260px; }
+        .img-placeholder.small { min-height: 160px; }
+
+        /* ===== ORIGIN STORY ===== */
+        .origin-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px; align-items: center;
+        }
+        .origin-text blockquote {
+            border-left: 3px solid #0066cc;
+            padding-left: 20px; margin: 24px 0;
+            font-style: italic; font-size: 1.1rem; color: #424245;
+        }
+        .timeline {
+            display: flex; flex-direction: column; gap: 20px;
+            margin-top: 32px;
+        }
+        .timeline-item {
+            display: flex; gap: 16px; align-items: flex-start;
+        }
+        .timeline-year {
+            font-weight: 700; font-size: 0.85rem; color: #0066cc;
+            min-width: 80px; padding-top: 2px;
+        }
+        .timeline-desc { font-size: 0.95rem; color: #424245; }
+
+        /* ===== CREDIBILITY (HUGHES) ===== */
+        .credibility-card {
+            background: #fff; border-radius: 16px;
+            padding: 48px; box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            max-width: 720px; margin: 0 auto;
+        }
+        .credibility-card .quote {
+            font-size: 1.5rem; font-weight: 500; line-height: 1.4;
+            margin-bottom: 24px;
+        }
+        .credibility-card .attribution {
+            font-size: 0.95rem; color: #6e6e73;
+        }
+        .credibility-card .attribution strong {
+            color: #1d1d1f; display: block; font-size: 1rem;
+        }
+        .credibility-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; margin-top: 48px; text-align: center;
+        }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: #0066cc; }
+        .stat-label { font-size: 0.85rem; color: #6e6e73; margin-top: 4px; }
+
+        /* ===== FEATURES ===== */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .feature-card {
+            background: #fff; border-radius: 16px; padding: 32px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e8e8ed;
+            transition: box-shadow 0.2s;
+        }
+        .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .feature-icon {
+            width: 44px; height: 44px; border-radius: 10px;
+            background: #0066cc; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px; font-size: 1.3rem;
+        }
+        .feature-card p { font-size: 0.9rem; color: #6e6e73; line-height: 1.5; }
+
+        /* ===== GALLERY ===== */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .gallery-item { position: relative; }
+        .gallery-caption {
+            font-size: 0.85rem; color: #6e6e73;
+            margin-top: 8px; text-align: center;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-table {
+            width: 100%; border-collapse: collapse;
+            font-size: 0.9rem; margin-top: 32px;
+        }
+        .comparison-table th {
+            text-align: left; padding: 12px 16px;
+            border-bottom: 2px solid #d2d2d7;
+            font-weight: 600; font-size: 0.82rem;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: #6e6e73;
+        }
+        .comparison-table th:first-child { color: #1d1d1f; }
+        .comparison-table th.highlight { color: #0066cc; }
+        .comparison-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #e8e8ed;
+            color: #424245;
+        }
+        .comparison-table tr:hover td { background: #f5f5f7; }
+        .comparison-table .check { color: #34c759; font-weight: 700; }
+        .comparison-table .x { color: #c7c7cc; }
+
+        /* ===== PCB SECTION ===== */
+        .pcb-features {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px; align-items: center;
+        }
+        .pcb-pipeline {
+            display: flex; align-items: center; gap: 12px;
+            margin: 24px 0; font-size: 0.95rem; font-weight: 500;
+        }
+        .pcb-pipeline .arrow { color: #0066cc; font-size: 1.2rem; }
+        .pcb-pipeline .step {
+            padding: 8px 16px; background: #f5f5f7;
+            border-radius: 8px; border: 1px solid #e8e8ed;
+        }
+        .eagle-alert {
+            background: #fff3cd; border: 1px solid #ffc107;
+            border-radius: 8px; padding: 16px; margin-top: 24px;
+            font-size: 0.9rem;
+        }
+        .eagle-alert strong { color: #856404; }
+
+        /* ===== PRICING ===== */
+        .pricing-cards {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 32px; max-width: 720px; margin: 0 auto;
+        }
+        .price-card {
+            border-radius: 16px; padding: 40px 32px;
+            text-align: center; position: relative;
+        }
+        .price-card.standard {
+            background: #fff; border: 1px solid #d2d2d7;
+        }
+        .price-card.early {
+            background: #0066cc; color: #fff;
+            box-shadow: 0 8px 30px rgba(0,102,204,0.3);
+        }
+        .price-card .price-label {
+            font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+        .price-card.early .price-label { color: rgba(255,255,255,0.8); }
+        .price-card.standard .price-label { color: #6e6e73; }
+        .price-amount { font-size: 3rem; font-weight: 700; line-height: 1; }
+        .price-period { font-size: 0.85rem; color: #6e6e73; margin-top: 4px; }
+        .price-card.early .price-period { color: rgba(255,255,255,0.7); }
+        .price-features {
+            list-style: none; margin-top: 24px; text-align: left;
+            font-size: 0.9rem;
+        }
+        .price-features li {
+            padding: 6px 0; display: flex; align-items: flex-start; gap: 8px;
+        }
+        .price-features li::before { content: "\2713"; font-weight: 700; flex-shrink: 0; }
+        .price-card.early .price-features li::before { color: rgba(255,255,255,0.8); }
+        .price-card.standard .price-features li::before { color: #34c759; }
+        .price-btn {
+            display: inline-block; margin-top: 24px;
+            padding: 12px 28px; border-radius: 24px;
+            font-weight: 600; font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+        .price-btn:hover { opacity: 0.85; text-decoration: none; }
+        .price-card.early .price-btn {
+            background: #fff; color: #0066cc;
+        }
+        .price-card.standard .price-btn {
+            background: #1d1d1f; color: #fff;
+        }
+        .price-card.early .savings-badge {
+            position: absolute; top: -12px; right: 24px;
+            background: #ff9500; color: #fff;
+            padding: 4px 12px; border-radius: 12px;
+            font-size: 0.75rem; font-weight: 700;
+        }
+
+        /* ===== AI STORY ===== */
+        .ai-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 48px; align-items: center;
+        }
+        .ai-stats {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px; margin-top: 24px;
+        }
+        .ai-stat-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px; padding: 20px;
+        }
+        .ai-stat-card .num { font-size: 1.8rem; font-weight: 700; color: #64d2ff; }
+        .ai-stat-card .label { font-size: 0.82rem; color: #a1a1a6; margin-top: 4px; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1d1d1f; color: #86868b; padding: 48px 0;
+            font-size: 0.85rem;
+        }
+        footer .container {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 16px;
+        }
+        .footer-brand { font-weight: 600; color: #f5f5f7; font-size: 1rem; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: #86868b; }
+        .footer-links a:hover { color: #f5f5f7; }
+        .footer-quote {
+            width: 100%; text-align: center;
+            margin-top: 24px; padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-style: italic; color: #6e6e73;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+            .origin-grid, .pcb-features, .ai-grid,
+            .pricing-cards, .gallery-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .credibility-stats { grid-template-columns: 1fr; gap: 16px; }
+            .section { padding: 48px 0; }
+            .hero { padding-top: 100px; }
+            .pcb-pipeline { flex-wrap: wrap; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .tagline { font-size: 1.15rem; }
+            .price-amount { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <div class="container">
+        <a href="#" class="nav-logo">CADD300 <span>Modern</span></a>
+        <div class="nav-links">
+            <a href="#origin">Origin</a>
+            <a href="#features">Features</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#pcb">PCB Pipeline</a>
+            <a href="#comparison">Compare</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#pricing" class="nav-cta">Get Early Access</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <p class="section-label">Introducing</p>
+        <h1>CADD300 Modern</h1>
+        <p class="tagline">Professional 2D CAD for macOS. No subscription. Ever.</p>
+
+        <div class="hero-badges">
+            <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Native macOS
+            </span>
+            <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                No Cloud Required
+            </span>
+            <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                One-Time Purchase
+            </span>
+            <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                43 Years of Heritage
+            </span>
+        </div>
+
+        <a href="#pricing" class="hero-cta">Get Early Access &mdash; $9,995</a>
+        <p class="hero-price">First 10 customers. Standard price: $12,995</p>
+
+        <!-- HERO SCREENSHOT -->
+        <div class="img-placeholder hero-img">
+            [IMAGE: Full C3 application screenshot showing the main drawing canvas<br>with a complex drawing, tool menus, and layer panel visible.<br>Recommended: 1920x1080 screenshot of C3 with an impressive drawing loaded]
+        </div>
+    </div>
+</section>
+
+<!-- ===== ORIGIN STORY ===== -->
+<section class="section" id="origin">
+    <div class="container">
+        <div class="origin-grid">
+            <div class="origin-text">
+                <p class="section-label">The Origin Story</p>
+                <h2>Born in Buckminster Fuller's Workshop</h2>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    In 1971, John M. Christy arrived at Southern Illinois University in Carbondale as an art student.
+                    By chance, he found himself drawn into the orbit of R. Buckminster Fuller &mdash; the legendary
+                    architect, inventor, and systems thinker who spent his final academic years at SIU.
+                </p>
+                <blockquote>
+                    "Bucky didn't teach you what to think. He taught you how to see &mdash; how to look at a problem
+                    and find the geometry inside it."
+                </blockquote>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    Working with geodesic structures, tensegrity models, and synergetic geometry, Christy developed
+                    an intuitive feel for spatial relationships that no textbook could provide. When Hewlett-Packard
+                    released the HP 9845 in the early 1980s, he saw his chance: build a CAD system that thought the
+                    way Fuller taught him to think &mdash; precise, geometric, visual.
+                </p>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    The result was CADD/200-300, published by Tensegrity, Inc. in Chicago. By 1986, it was being
+                    used by Hughes Aircraft's Space &amp; Communications Group to design satellite microwave
+                    assemblies. John Hardy's audio company adopted it the same year &mdash; and never stopped
+                    using it.
+                </p>
+            </div>
+            <div>
+                <!-- ORIGIN IMAGES -->
+                <div class="img-placeholder" style="min-height: 320px; margin-bottom: 16px;">
+                    [IMAGE: Photo of John Christy, or a geodesic dome / tensegrity model,<br>
+                    or the original HP 9845 running CADD/200.<br>
+                    Alternative: The Tensegrity logo mark]
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">1971&ndash;1980</span>
+                        <span class="timeline-desc">Christy studies with Buckminster Fuller at SIU Carbondale. Geodesic domes, tensegrity, synergetics.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1982</span>
+                        <span class="timeline-desc">First CADD software written for Hewlett-Packard workstations. Published by Tensegrity, Inc., Chicago.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1986</span>
+                        <span class="timeline-desc">Hughes Aircraft validates CADD for satellite microwave design. John Hardy adopts it for audio engineering.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1995</span>
+                        <span class="timeline-desc">CADD95 release for Windows. Hardy runs it continuously for the next three decades.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Oct 2025</span>
+                        <span class="timeline-desc">CADD300 Modern development begins: native macOS rebuild using SwiftUI, CoreGraphics, and AI-assisted engineering with Claude.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Feb 2026</span>
+                        <span class="timeline-desc">Feature-complete with DXF interop, Gerber export, Eagle import, SVG export, multi-window, 3D wireframe, and 20-level undo.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CREDIBILITY: HUGHES AIRCRAFT ===== -->
+<section class="section section-alt" id="credibility">
+    <div class="container">
+        <p class="section-label" style="text-align:center;">Proven in the Field</p>
+        <h2 style="text-align:center;">Trusted by Engineers Who Build Satellites</h2>
+
+        <div class="credibility-card" style="margin-top: 40px;">
+            <div class="quote">
+                "Thank you for the update software. The software is great. We are able to do
+                almost anything that ME10 does on its mainframe, but with the convenience and
+                low cost of a desktop computer."
+            </div>
+            <div class="attribution">
+                <strong>Bart R. Cruz</strong>
+                Technical Supervisor, Microwave Laboratory<br>
+                Hughes Aircraft Company &mdash; Space &amp; Communications Group<br>
+                August 27, 1986
+            </div>
+            <div style="margin-top: 20px;">
+                <div class="img-placeholder small" style="min-height: 120px;">
+                    [IMAGE: Scan of the original Hughes Aircraft letter (1986).<br>
+                    File: JMC Letter Hughes Space Communications Group.pdf]
+                </div>
+            </div>
+        </div>
+
+        <div class="credibility-stats">
+            <div>
+                <div class="stat-number">43</div>
+                <div class="stat-label">Years of continuous development</div>
+            </div>
+            <div>
+                <div class="stat-number">1</div>
+                <div class="stat-label">User who never stopped (John Hardy, since 1986)</div>
+            </div>
+            <div>
+                <div class="stat-number">4</div>
+                <div class="stat-label">Months to rebuild with AI (Oct 2025 &ndash; Feb 2026)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== JOHN HARDY TESTIMONIAL ===== -->
+<section class="section">
+    <div class="container">
+        <div class="origin-grid">
+            <div>
+                <div class="img-placeholder" style="min-height: 300px;">
+                    [IMAGE: Photo of John Hardy or the John Hardy Company facility,<br>
+                    or a C3 drawing of audio equipment (preamp, mixer, etc.).<br>
+                    Alternative: Screenshot of a Hardy audio PCB design in C3]
+                </div>
+            </div>
+            <div>
+                <p class="section-label">The 43-Year User</p>
+                <h2>John Hardy Has Used This Software Every Working Day Since 1986</h2>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    The John Hardy Company in Evanston, Illinois designs and manufactures
+                    professional audio electronics &mdash; microphone preamps, mixers, and
+                    signal processors used in recording studios worldwide.
+                </p>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    Hardy adopted CADD in 1986 and has used it continuously ever since.
+                    Every PCB layout, every mechanical enclosure, every panel graphic for
+                    nearly four decades of Hardy products was drawn in this software.
+                </p>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    When Christy began the modern rebuild in October 2025, Hardy's real-world
+                    workflow drove every decision. The result isn't a tech demo &mdash; it's a
+                    production tool refined by 43 years of daily professional use.
+                </p>
+                <blockquote style="border-left: 3px solid #0066cc; padding-left: 20px; margin: 24px 0; font-style: italic; font-size: 1.1rem; color: #424245;">
+                    "This is the only software I've ever used that does exactly what I need,
+                    exactly the way I think about it."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section section-alt" id="features">
+    <div class="container">
+        <p class="section-label" style="text-align:center;">Complete Toolkit</p>
+        <h2 style="text-align:center;">Everything You Need. Nothing You Don't.</h2>
+        <p class="subtitle" style="text-align:center; max-width: 640px; margin: 0 auto 48px;">
+            Professional 2D CAD with analytical precision, keyboard-driven workflow,
+            and zero bloat. Every geometric calculation is exact &mdash; not approximate.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <h3>Lines &amp; Curves</h3>
+                <p>Point-to-point, length+angle, parallel, perpendicular, tangent. Splines, polylines, and regular polygons with 3&ndash;99 sides.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <h3>Circles &amp; Arcs</h3>
+                <p>Seven circle modes including tangent to 3 items. Nine arc tools with fillet, chamfer, and tangent arcs. Analytical precision &mdash; no approximations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                </div>
+                <h3>Text &amp; Annotations</h3>
+                <p>Any macOS font with search. Nine-point justification, rotation, bold. Vector stick text for Gerber output. Resizable text blocks with word wrap.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <h3>DXF Interoperability</h3>
+                <p>Import DXF from R12 through R2018+ (AutoCAD, DraftSight, FreeCAD, LibreCAD). Export as universally-compatible R12. Full 256-color ACI palette.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Powerful Editing</h3>
+                <p>Move, copy, scale (independent X/Y), rotate, mirror, trim, extend, fillet, chamfer, offset, stretch. Polar, rectangular, and parallel arrays.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>256 Layers</h3>
+                <p>Named layers with descriptions, favorites, transparency overlay, smart visibility. Construction line layer. Edits-follow-layers toggle for group operations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                </div>
+                <h3>Symbols &amp; Groups</h3>
+                <p>Create reusable symbols from groups. Visual library browser. Place with scale, rotation, and mirror. Explode back to primitives. Import/export .symlib files.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Print &amp; PDF</h3>
+                <p>Five print modes: viewport, fit-to-page, actual size, drawing scale, custom scale. Auto-rotation. PDF export with auto-populated filenames.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                </div>
+                <h3>3D Wireframe</h3>
+                <p>Reconstruct 3D wireframe models from 2D orthographic views. Assign front, side, and top views. Interactive rotation with SceneKit rendering.</p>
+            </div>
+        </div>
+
+        <!-- ADDITIONAL FEATURE HIGHLIGHTS -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; text-align: center;">
+            <div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #0066cc;">20</div>
+                <div style="font-size: 0.82rem; color: #6e6e73;">Undo levels</div>
+            </div>
+            <div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #0066cc;">4</div>
+                <div style="font-size: 0.82rem; color: #6e6e73;">Snap modes</div>
+            </div>
+            <div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #0066cc;">8</div>
+                <div style="font-size: 0.82rem; color: #6e6e73;">Fill patterns</div>
+            </div>
+            <div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #0066cc;">10</div>
+                <div style="font-size: 0.82rem; color: #6e6e73;">Line types</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SAMPLE WORK GALLERY ===== -->
+<section class="section" id="gallery">
+    <div class="container">
+        <p class="section-label" style="text-align:center;">Made with C3</p>
+        <h2 style="text-align:center;">From PCBs to Architectural Details</h2>
+        <p class="subtitle" style="text-align:center; max-width: 600px; margin: 0 auto 48px;">
+            Real drawings created in CADD300 Modern &mdash; spanning electronics, mechanical design, architecture, and technical illustration.
+        </p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: PCB board layout (e.g., Hardy MPC preamp board)<br>
+                    or imported Eagle board design.<br>
+                    Shows trace routing, component placement, layer colors]
+                </div>
+                <p class="gallery-caption">PCB board layout &mdash; imported from Eagle, ready for Gerber export</p>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: Mechanical part drawing with dimensions<br>
+                    Shows precision drafting: witness lines, tolerances, hatching.<br>
+                    Recommended: A dimensioned part from the Hardy drawings]
+                </div>
+                <p class="gallery-caption">Mechanical part with full dimensioning and section hatching</p>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: 3-way speaker crossover/enclosure design<br>
+                    (the 3way20 drawing that was exported to SVG).<br>
+                    Shows curves, annotations, complex geometry]
+                </div>
+                <p class="gallery-caption">Speaker enclosure design with crossover network layout</p>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: Architectural or structural detail<br>
+                    (wall chase, cabinet spec, frame attachment).<br>
+                    Shows layers, line types, text annotations]
+                </div>
+                <p class="gallery-caption">Architectural detail with layer management and construction lines</p>
+            </div>
+        </div>
+
+        <!-- ADDITIONAL GALLERY ROW -->
+        <div class="gallery-grid" style="margin-top: 24px;">
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: Hydraulic or electrical schematic<br>
+                    Shows symbols, connection lines, part labels.<br>
+                    Or: DXF import round-trip example]
+                </div>
+                <p class="gallery-caption">Schematic design with symbol library and annotations</p>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder gallery-img">
+                    [IMAGE: 3D wireframe reconstruction from 2D views<br>
+                    Shows the SceneKit 3D view alongside 2D orthographic projections.<br>
+                    Demonstrates the 3D-from-2D feature]
+                </div>
+                <p class="gallery-caption">3D wireframe reconstructed from orthographic views</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PCB PIPELINE ===== -->
+<section class="section section-alt" id="pcb">
+    <div class="container">
+        <div class="pcb-features">
+            <div>
+                <p class="section-label">For PCB Designers</p>
+                <h2>Eagle Dies June 7, 2026.<br>Your Boards Don't Have To.</h2>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    Autodesk is ending Eagle CAD support on June 7, 2026. CADD300 Modern
+                    imports Eagle .BRD board files and exports industry-standard Gerber RS-274X
+                    &mdash; giving you a complete fabrication pipeline that doesn't depend on
+                    Autodesk's subscription timeline.
+                </p>
+
+                <div class="pcb-pipeline">
+                    <span class="step">Eagle .BRD</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="step">C3 Review &amp; Edit</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="step">Gerber RS-274X</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="step">Fab House</span>
+                </div>
+
+                <ul style="list-style: none; font-size: 0.95rem; color: #424245;">
+                    <li style="padding: 4px 0;">&#10003;&nbsp; Import Eagle v6+ XML board files &mdash; components, traces, pads, vias, silkscreen</li>
+                    <li style="padding: 4px 0;">&#10003;&nbsp; Full layer mapping: 16 standard Gerber layers + 4 user-defined</li>
+                    <li style="padding: 4px 0;">&#10003;&nbsp; Excellon drill file auto-generated</li>
+                    <li style="padding: 4px 0;">&#10003;&nbsp; Board setup: 1&ndash;8 copper layers, inches or millimeters</li>
+                    <li style="padding: 4px 0;">&#10003;&nbsp; Export in under 10 seconds, even for complex boards</li>
+                </ul>
+
+                <div class="eagle-alert">
+                    <strong>Eagle End-of-Life: June 7, 2026.</strong> Export your boards now.
+                    C3 preserves access to your Eagle designs and gives you a direct path to fabrication.
+                </div>
+            </div>
+            <div>
+                <div class="img-placeholder" style="min-height: 320px; margin-bottom: 16px;">
+                    [IMAGE: Eagle board imported into C3<br>
+                    showing component outlines, traces, pads, silkscreen text.<br>
+                    Recommended: SparkFun or Adafruit board import]
+                </div>
+                <div class="img-placeholder" style="min-height: 200px;">
+                    [IMAGE: Gerber Export Sheet in C3<br>
+                    showing the board setup panel with layer mapping,<br>
+                    extension modes, and copper layer selection]
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="section" id="comparison">
+    <div class="container">
+        <p class="section-label" style="text-align:center;">How We Compare</p>
+        <h2 style="text-align:center;">C3 vs. The Subscription CAD Industry</h2>
+        <p class="subtitle" style="text-align:center; max-width: 640px; margin: 0 auto;">
+            Professional capability without the annual tax. Here's how CADD300 Modern
+            stacks up against the major players.
+        </p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="highlight">C3</th>
+                    <th>AutoCAD</th>
+                    <th>AutoCAD LT</th>
+                    <th>DraftSight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Annual Cost</strong></td>
+                    <td><strong>One-time purchase</strong></td>
+                    <td>$2,030/yr</td>
+                    <td>$515/yr</td>
+                    <td>$299&ndash;$599/yr</td>
+                </tr>
+                <tr>
+                    <td><strong>3-Year Cost</strong></td>
+                    <td><strong>$0 after purchase</strong></td>
+                    <td>$6,085</td>
+                    <td>$1,545</td>
+                    <td>$897&ndash;$1,797</td>
+                </tr>
+                <tr>
+                    <td><strong>Native macOS</strong></td>
+                    <td class="check">&#10003; SwiftUI + CoreGraphics</td>
+                    <td>Port</td>
+                    <td>Port</td>
+                    <td>Port</td>
+                </tr>
+                <tr>
+                    <td><strong>Offline-First</strong></td>
+                    <td class="check">&#10003; Zero cloud dependency</td>
+                    <td>Optional cloud</td>
+                    <td>Optional cloud</td>
+                    <td>&#10003;</td>
+                </tr>
+                <tr>
+                    <td><strong>DXF Import/Export</strong></td>
+                    <td class="check">&#10003; R12&ndash;R2018+</td>
+                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td><strong>Eagle .BRD Import</strong></td>
+                    <td class="check">&#10003;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                </tr>
+                <tr>
+                    <td><strong>Gerber Export</strong></td>
+                    <td class="check">&#10003; RS-274X + Excellon</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                </tr>
+                <tr>
+                    <td><strong>SVG/HTML Export</strong></td>
+                    <td class="check">&#10003;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                </tr>
+                <tr>
+                    <td><strong>Embedded Images</strong></td>
+                    <td class="check">&#10003; In-file</td>
+                    <td>External refs</td>
+                    <td>External refs</td>
+                    <td>External refs</td>
+                </tr>
+                <tr>
+                    <td><strong>Voice Guidance</strong></td>
+                    <td class="check">&#10003;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                </tr>
+                <tr>
+                    <td><strong>Cross-Window Drag</strong></td>
+                    <td class="check">&#10003; Option+click</td>
+                    <td>Copy/Paste</td>
+                    <td>Copy/Paste</td>
+                    <td>Copy/Paste</td>
+                </tr>
+                <tr>
+                    <td><strong>3D from 2D Views</strong></td>
+                    <td class="check">&#10003;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                    <td class="x">&times;</td>
+                </tr>
+                <tr>
+                    <td><strong>Auto Hatch</strong></td>
+                    <td class="check">&#10003; One-click</td>
+                    <td>Boundary pick</td>
+                    <td>Boundary pick</td>
+                    <td>Boundary pick</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ===== AI DEVELOPMENT STORY ===== -->
+<section class="section section-dark" id="ai">
+    <div class="container">
+        <div class="ai-grid">
+            <div>
+                <p class="section-label">The Rebuild</p>
+                <h2>43 Years of Knowledge.<br>4 Months of AI-Assisted Engineering.</h2>
+                <p style="color: #a1a1a6; margin-top: 16px; font-size: 1.05rem;">
+                    In October 2025, Christy began rebuilding CADD from the ground up as a
+                    native macOS application. Working with Anthropic's Claude as an AI pair-programmer,
+                    the entire application &mdash; over 45,000 lines of Swift &mdash; was built in
+                    four months.
+                </p>
+                <p style="color: #a1a1a6; margin-top: 16px; font-size: 1.05rem;">
+                    This isn't a port. It's a complete reimagining: SwiftUI for the interface,
+                    CoreGraphics for pixel-perfect rendering, a QuadTree spatial index for
+                    O(log n) performance, and analytical geometry throughout. Every feature was
+                    designed to match or exceed the original CADD's capability while taking full
+                    advantage of modern hardware.
+                </p>
+                <p style="color: #a1a1a6; margin-top: 16px; font-size: 1.05rem;">
+                    The AI didn't replace engineering judgment &mdash; it amplified it. Four decades
+                    of knowing what a CAD tool needs, combined with an AI that could implement it
+                    at astonishing speed. Human domain expertise meets machine execution.
+                </p>
+            </div>
+            <div>
+                <div class="ai-stats">
+                    <div class="ai-stat-card">
+                        <div class="num">45,000+</div>
+                        <div class="label">Lines of Swift code</div>
+                    </div>
+                    <div class="ai-stat-card">
+                        <div class="num">4</div>
+                        <div class="label">Months development time</div>
+                    </div>
+                    <div class="ai-stat-card">
+                        <div class="num">0</div>
+                        <div class="label">External dependencies</div>
+                    </div>
+                    <div class="ai-stat-card">
+                        <div class="num">0</div>
+                        <div class="label">Subscription fees. Ever.</div>
+                    </div>
+                </div>
+                <div class="img-placeholder" style="min-height: 240px; margin-top: 24px; border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); color: #6e6e73;">
+                    [IMAGE: Side-by-side of the original HP 9845 CADD screen<br>
+                    and the modern C3 interface on a MacBook.<br>
+                    Shows 43 years of evolution in one frame]
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== KEYBOARD WORKFLOW ===== -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <p class="section-label">Designed for Speed</p>
+        <h2>Keyboard-Driven. No Menus Required.</h2>
+        <p class="subtitle" style="max-width: 600px; margin: 0 auto 40px;">
+            Single-key shortcuts for every tool. L&nbsp;for lines, C&nbsp;for circles,
+            B&nbsp;for boxes, T&nbsp;for text. Number keys switch snap modes.
+            Press&nbsp;? for the complete reference.
+        </p>
+        <div class="img-placeholder" style="max-width: 800px; margin: 0 auto; min-height: 300px;">
+            [IMAGE: Screenshot of the HotKeys popup (?&nbsp;key)<br>
+            showing the 5-column layout of all keyboard shortcuts.<br>
+            Demonstrates the keyboard-driven workflow philosophy]
+        </div>
+    </div>
+</section>
+
+<!-- ===== 1986 DATA PACK ===== -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="origin-grid">
+            <div>
+                <p class="section-label">From the Archives</p>
+                <h2>The Original CADD/200-300 Data Pack (1986)</h2>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    The original software ran on Hewlett-Packard workstations (HP 216, 217, 310, 320)
+                    and cost $4,000 for the first workstation license. It supported HP plotters up to
+                    E-size (34"&times;44"), digitizing tablets for input, and featured the same grid
+                    zero + snap increment precision system that C3 uses today.
+                </p>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    The 1986 data pack includes sample drawings from Hughes Aircraft (satellite
+                    microwave assemblies), The John Hardy Company (audio electronics), Ly-Line Products
+                    (furniture specifications), and Pfauter (industrial machinery) &mdash; showing the
+                    range of industries that trusted this software from the beginning.
+                </p>
+                <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
+                    Published by Tensegrity, Inc. at 2424 Addison Street, Chicago, IL 60618.
+                </p>
+            </div>
+            <div>
+                <div class="img-placeholder" style="min-height: 320px; margin-bottom: 16px;">
+                    [IMAGE: Cover page or sample drawings from the 1986 Data Pack.<br>
+                    The cover reads: "CADD/200-300 2-1/2 D Design & Drafting Software"<br>
+                    by Tensegrity, Inc., 2424 Addison St., Chicago, IL 60618]
+                </div>
+                <div class="img-placeholder" style="min-height: 200px;">
+                    [IMAGE: One of the original 1986 sample drawings &mdash;<br>
+                    e.g., the Hardy MPC preamp board layout or the<br>
+                    fin detail mechanical drawing (#85090402B)]
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing">
+    <div class="container">
+        <p class="section-label" style="text-align:center;">Pricing</p>
+        <h2 style="text-align:center;">Own It Forever. No Subscriptions.</h2>
+        <p class="subtitle" style="text-align:center; max-width: 600px; margin: 0 auto 48px;">
+            One purchase. Perpetual license. Free updates. Your software, on your machine,
+            working offline &mdash; forever.
+        </p>
+
+        <div class="pricing-cards">
+            <div class="price-card early">
+                <div class="savings-badge">SAVE $3,000</div>
+                <div class="price-label">Early Access</div>
+                <div class="price-amount">$9,995</div>
+                <div class="price-period">One-time &mdash; first 10 customers</div>
+                <ul class="price-features">
+                    <li>Full application, all features</li>
+                    <li>Perpetual license, no expiration</li>
+                    <li>Free updates for the first year</li>
+                    <li>Direct support from the developer</li>
+                    <li>Shape the product roadmap</li>
+                </ul>
+                <a href="mailto:john@tetra720.com?subject=CADD300 Early Access" class="price-btn">Contact for Early Access</a>
+            </div>
+            <div class="price-card standard">
+                <div class="price-label">Standard</div>
+                <div class="price-amount">$12,995</div>
+                <div class="price-period">One-time purchase</div>
+                <ul class="price-features">
+                    <li>Full application, all features</li>
+                    <li>Perpetual license, no expiration</li>
+                    <li>Free updates for the first year</li>
+                    <li>Email support</li>
+                </ul>
+                <a href="mailto:john@tetra720.com?subject=CADD300 Modern Purchase" class="price-btn">Contact Sales</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #6e6e73;">
+            <p><strong>Compare:</strong> AutoCAD costs $2,030/year. In 5 years, that's $10,150 &mdash; and you own nothing.</p>
+            <p style="margin-top: 8px;">C3 pays for itself in under 5 years vs. AutoCAD, and you keep it forever.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SYSTEM REQUIREMENTS ===== -->
+<section class="section section-alt">
+    <div class="container" style="text-align: center;">
+        <h2>Runs on Any Mac. No Dependencies.</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; max-width: 720px; margin-left: auto; margin-right: auto;">
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">&#63743;</div>
+                <h3 style="font-size: 0.9rem;">macOS Native</h3>
+                <p style="font-size: 0.82rem; color: #6e6e73;">Apple Silicon &amp; Intel</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">&#9888;&#65039;</div>
+                <h3 style="font-size: 0.9rem;">No Internet</h3>
+                <p style="font-size: 0.82rem; color: #6e6e73;">Works completely offline</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">&#128274;</div>
+                <h3 style="font-size: 0.9rem;">No Telemetry</h3>
+                <p style="font-size: 0.82rem; color: #6e6e73;">Your data stays yours</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">&#9889;</div>
+                <h3 style="font-size: 0.9rem;">Fast Startup</h3>
+                <p style="font-size: 0.82rem; color: #6e6e73;">Lightweight, focused app</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-brand">Tetra720 &mdash; CADD300 Modern</div>
+        <div class="footer-links">
+            <a href="mailto:john@tetra720.com">john@tetra720.com</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#pcb">PCB Pipeline</a>
+        </div>
+        <div class="footer-quote">
+            "You never change things by fighting the existing reality. To change something,
+            build a new model that makes the existing model obsolete."
+            <br>&mdash; R. Buckminster Fuller
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

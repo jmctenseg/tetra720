@@ -358,6 +358,72 @@
             .hero { padding-top: 100px; }
             .pcb-pipeline { flex-wrap: wrap; }
         }
+        /* ===== SUCCESSIVE APPROXIMATION STRIP ===== */
+        .sa-strip {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+            margin: 40px 0;
+        }
+        .sa-stage {
+            flex: 1;
+            max-width: 220px;
+            background: #fff;
+            border: 1px solid #e8e8ed;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .sa-stage:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .sa-stage .sa-year {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6e6e73;
+            margin-bottom: 6px;
+        }
+        .sa-stage .sa-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+        .sa-stage .sa-desc {
+            font-size: 0.82rem;
+            color: #6e6e73;
+            line-height: 1.5;
+        }
+        .sa-stage.current {
+            border-color: #0066cc;
+            box-shadow: 0 2px 12px rgba(0,102,204,0.12);
+        }
+        .sa-stage.current .sa-name { color: #0066cc; }
+        .sa-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 1.5rem;
+            color: #0066cc;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .sa-strip {
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+            .sa-stage { max-width: 100%; width: 100%; }
+            .sa-arrow {
+                transform: rotate(90deg);
+                padding: 8px 0;
+                font-size: 1.2rem;
+            }
+        }
+
         @media (max-width: 480px) {
             .hero h1 { font-size: 2rem; }
             .hero .tagline { font-size: 1.15rem; }
@@ -373,6 +439,7 @@
         <a href="#" class="nav-logo"><span>C3</span> Professional CAD</a>
         <div class="nav-links">
             <a href="#origin">Origin</a>
+            <a href="#philosophy">Philosophy</a>
             <a href="#features">Features</a>
             <a href="#gallery">Gallery</a>
             <a href="#pcb">PCB Pipeline</a>
@@ -387,8 +454,8 @@
 <section class="hero">
     <div class="container">
         <p class="section-label">Introducing</p>
-        <h1>C3</h1>
-        <p style="font-size: 1rem; color: #86868b; margin-bottom: 4px;">CADD300 Modern</p>
+        <h1>CADD300 Modern</h1>
+        <p style="font-size: 1rem; color: #86868b; margin-bottom: 4px;">(C3)</p>
         <p class="tagline">Professional 2D CAD for macOS. No subscription. Ever.</p>
 
         <div class="hero-badges">
@@ -414,8 +481,8 @@
         <p class="hero-price">Limited to 10 professionals &mdash; then price increases to $12,995</p>
 
         <!-- HERO SCREENSHOT -->
-        <div class="img-placeholder hero-img">
-            [IMAGE: Full C3 application screenshot showing the main drawing canvas<br>with a complex drawing, tool menus, and layer panel visible.<br>Recommended: 1920x1080 screenshot of C3 with an impressive drawing loaded]
+        <div class="hero-img" style="max-width: 960px; margin: 40px auto 0;">
+            <img src="images/MPC-1 Zoomed Screenshot-2.png" alt="CADD300 Modern application screenshot showing a complex drawing with tool menus and layer panel" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
         </div>
     </div>
 </section>
@@ -426,15 +493,21 @@
         <div class="origin-grid">
             <div class="origin-text">
                 <p class="section-label">The Origin Story</p>
-                <h2>Born in Buckminster Fuller's Workshop</h2>
+                <h2>Inspired by R. Buckminster Fuller</h2>
                 <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
-                    In 1971, John M. Christy arrived at Southern Illinois University in Carbondale as an art student.
+                    In 1971, John M. Christy arrived at Carbondale, Illinois, home of Southern Illinois University.
                     There he encountered R. Buckminster Fuller &mdash; the legendary
                     architect, inventor, and systems thinker who spent his final academic years at SIU.
                 </p>
                 <blockquote>
                     "You can do anything you want to do. All you have to do is learn how to learn."
                     <br><span style="font-size: 0.85rem; font-style: normal; color: #6e6e73;">&mdash; R. Buckminster Fuller</span>
+                </blockquote>
+                <blockquote>
+                    Fuller described successive approximation as the fundamental process by which nature &mdash;
+                    and human ingenuity &mdash; arrives at optimal solutions. You don't leap to perfection.
+                    You iterate toward it. The geodesic dome wasn't born fully formed. It was converged
+                    upon &mdash; methodically, relentlessly, over time.
                 </blockquote>
                 <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
                     Working with geodesic structures, tensegrity models, and synergetic geometry, Christy developed
@@ -448,7 +521,7 @@
                 <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
                     So Christy taught himself HP BASIC, then Pascal. By 1982, he had built a CAD system on a $3,000
                     HP desktop that rivaled systems developed by teams of PhDs. Four years later, Hughes Aircraft
-                    was using it to design satellites. The result was CADD/200-300, published by Tensegrity, Inc. in Chicago.
+                    was using it to design microwave components for satellites. The result was CADD/200-300, published by Tensegrity, Inc. in Chicago.
                 </p>
                 <p style="font-size: 1.05rem; color: #424245; margin-top: 16px;">
                     The same principle drove the 2025 rebuild: learn the tools (AI-assisted development), apply four
@@ -457,10 +530,8 @@
             </div>
             <div>
                 <!-- ORIGIN IMAGES -->
-                <div class="img-placeholder" style="min-height: 320px; margin-bottom: 16px;">
-                    [IMAGE: Photo of John Christy, or a geodesic dome / tensegrity model,<br>
-                    or the original HP 9845 running CADD/200.<br>
-                    Alternative: The Tensegrity logo mark]
+                <div style="margin-bottom: 16px;">
+                    <img src="images/Bucky Fuller Classroom Screenshot-1.png" alt="R. Buckminster Fuller in the classroom at Southern Illinois University" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
                 </div>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -473,15 +544,11 @@
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-year">1983</span>
-                        <span class="timeline-desc">John Hardy adopts CADD for audio engineering at The John Hardy Company, Evanston, IL.</span>
+                        <span class="timeline-desc">John Hardy adopts CADD for audio engineering at The John Hardy Company, Evanston, IL. Hardy runs it continuously for the next three decades.</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-year">1986</span>
                         <span class="timeline-desc">Hughes Aircraft validates CADD for satellite microwave design at their Space &amp; Communications Group.</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">1995</span>
-                        <span class="timeline-desc">CADD95 release for Windows. Hardy runs it continuously for the next three decades.</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-year">Oct 2025</span>
@@ -505,9 +572,7 @@
 
         <div class="credibility-card" style="margin-top: 40px;">
             <div class="quote">
-                "Thank you for the update software. The software is great. We are able to do
-                almost anything that ME10 does on its mainframe, but with the convenience and
-                low cost of a desktop computer."
+                "Thank you for the update software. The software is great."
             </div>
             <div class="attribution">
                 <strong>Bart R. Cruz</strong>
@@ -516,10 +581,7 @@
                 August 27, 1986
             </div>
             <div style="margin-top: 20px;">
-                <div class="img-placeholder small" style="min-height: 120px;">
-                    [IMAGE: Scan of the original Hughes Aircraft letter (1986).<br>
-                    File: JMC Letter Hughes Space Communications Group.pdf]
-                </div>
+                <img src="images/JMC Letter Hughes Space Communications Group.png" alt="Original 1986 letter from Hughes Aircraft Space &amp; Communications Group endorsing CADD software" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
             </div>
         </div>
 
@@ -545,10 +607,8 @@
     <div class="container">
         <div class="origin-grid">
             <div>
-                <div class="img-placeholder" style="min-height: 300px;">
-                    [IMAGE: Photo of John Hardy or the John Hardy Company facility,<br>
-                    or a C3 drawing of audio equipment (preamp, mixer, etc.).<br>
-                    Alternative: Screenshot of a Hardy audio PCB design in C3]
+                <div>
+                    <img src="images/Hardy Jensen Twin-Servo.jpg" alt="John Hardy with the Jensen Twin-Servo microphone preamplifier" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
                 </div>
             </div>
             <div>
@@ -705,10 +765,8 @@
                 <p class="gallery-caption">Mechanical part with full dimensioning and section hatching</p>
             </div>
             <div class="gallery-item">
-                <div class="img-placeholder gallery-img">
-                    [IMAGE: 3-way speaker crossover/enclosure design<br>
-                    (the 3way20 drawing that was exported to SVG).<br>
-                    Shows curves, annotations, complex geometry]
+                <div class="gallery-img">
+                    <img src="images/3way20 Screenshot-1.png" alt="3-way speaker crossover and enclosure design drawn in CADD300 Modern" style="width: 100%; border-radius: 8px;">
                 </div>
                 <p class="gallery-caption">Speaker enclosure design with crossover network layout</p>
             </div>
@@ -890,7 +948,7 @@
                 </tr>
                 <tr>
                     <td><strong>Voice Guidance</strong></td>
-                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003; On/off toggle</td>
                     <td class="x">&times;</td>
                     <td class="x">&times;</td>
                     <td class="x">&times;</td>
@@ -918,7 +976,7 @@
                 </tr>
                 <tr>
                     <td><strong>Training Required</strong></td>
-                    <td class="check">Minimal (intuitive + voice guidance)</td>
+                    <td class="check">Minimal (sidebar menus + voice guidance)</td>
                     <td>Extensive (steep curve)</td>
                     <td>Extensive</td>
                     <td>Moderate</td>
@@ -960,6 +1018,12 @@
                     of domain knowledge, combined with an AI that could implement it
                     at astonishing speed. Human expertise meets machine execution.
                 </p>
+                <p style="color: #a1a1a6; margin-top: 16px; font-size: 1.05rem;">
+                    With Claude Code integrated into the workflow, iteration cycles that once took
+                    months now compress into days. Ideas that lived in the margins of a notebook
+                    can be tested, refined, and integrated almost immediately. Fuller's methodology
+                    of successive approximation finally operates at the speed it always deserved.
+                </p>
             </div>
             <div>
                 <div class="ai-stats">
@@ -990,20 +1054,73 @@
     </div>
 </section>
 
-<!-- ===== KEYBOARD WORKFLOW ===== -->
+<!-- ===== PHILOSOPHY: SUCCESSIVE APPROXIMATION ===== -->
+<section class="section section-alt" id="philosophy">
+    <div class="container" style="text-align: center;">
+        <p class="section-label">The Philosophy</p>
+        <h2>43 Years of Successive Approximation</h2>
+        <p class="subtitle" style="max-width: 680px; margin: 0 auto 16px;">
+            Fuller described successive approximation as the fundamental process by which
+            nature &mdash; and human ingenuity &mdash; arrives at optimal solutions.
+            You don't leap to perfection. You iterate toward it. Each cycle of design,
+            testing, and refinement eliminates error and reveals a closer approximation of the ideal.
+        </p>
+        <p style="font-size: 1.05rem; color: #424245; margin-bottom: 8px;">
+            That principle became the guiding logic behind everything that is now C3.
+        </p>
+
+        <div class="sa-strip">
+            <div class="sa-stage">
+                <div class="sa-year">Early 1980s</div>
+                <div class="sa-name">CADD/85</div>
+                <div class="sa-desc">First approximation. Established the core problem space and intellectual foundation on HP workstations.</div>
+            </div>
+            <div class="sa-arrow">&rarr;</div>
+            <div class="sa-stage">
+                <div class="sa-year">1986&ndash;87</div>
+                <div class="sa-name">CADD/86&ndash;87</div>
+                <div class="sa-desc">Refined the model. Tightened methodology, expanded capability. The errors of the first pass became the lessons of the second.</div>
+            </div>
+            <div class="sa-arrow">&rarr;</div>
+            <div class="sa-stage">
+                <div class="sa-year">1983&ndash;1995</div>
+                <div class="sa-name">CADD/200&ndash;300</div>
+                <div class="sa-desc">Generational leap. Proven at Hughes Aircraft, adopted by Hardy. A mature system that understood its own history well enough to transcend it.</div>
+            </div>
+            <div class="sa-arrow">&rarr;</div>
+            <div class="sa-stage current">
+                <div class="sa-year">2025&ndash;Present</div>
+                <div class="sa-name">C3</div>
+                <div class="sa-desc">The current approximation. Four decades of wisdom, rebuilt with AI at the speed the methodology always deserved.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 1.15rem; font-style: italic; color: #6e6e73; margin-top: 32px;">
+            The approximation continues.
+        </p>
+    </div>
+</section>
+
+<!-- ===== WORKFLOW ===== -->
 <section class="section">
     <div class="container" style="text-align: center;">
         <p class="section-label">Designed for Speed</p>
-        <h2>Keyboard-Driven. No Menus Required.</h2>
-        <p class="subtitle" style="max-width: 600px; margin: 0 auto 40px;">
-            Single-key shortcuts for every tool. L&nbsp;for lines, C&nbsp;for circles,
-            B&nbsp;for boxes, T&nbsp;for text. Number keys switch snap modes.
-            Press&nbsp;? for the complete reference.
+        <h2>Sidebar Menus + Voice Guidance + Hotkeys</h2>
+        <p class="subtitle" style="max-width: 680px; margin: 0 auto 40px;">
+            Every feature is reachable from the always-visible sidebar &mdash; click a tool category
+            and the panel shows all options, fields, and sub-tools. No hunting through nested dropdown menus.
+            For experienced users, single-key shortcuts accelerate everything: L&nbsp;for lines, C&nbsp;for circles,
+            B&nbsp;for boxes, T&nbsp;for text. Press&nbsp;? for the complete hotkey reference.
         </p>
-        <div class="img-placeholder" style="max-width: 800px; margin: 0 auto; min-height: 300px;">
-            [IMAGE: Screenshot of the HotKeys popup (?&nbsp;key)<br>
-            showing the 5-column layout of all keyboard shortcuts.<br>
-            Demonstrates the keyboard-driven workflow philosophy]
+        <p class="subtitle" style="max-width: 680px; margin: 0 auto 40px; font-style: italic;">
+            <strong>Voice Guidance</strong> talks you through multi-step operations &mdash;
+            &ldquo;Click first point,&rdquo; &ldquo;Click second point,&rdquo;
+            &ldquo;Click the side to offset.&rdquo; Invaluable for learning complex tools
+            and for hands-on-the-keyboard flow where your eyes stay on the drawing.
+            One toggle switch in the main menu turns voice on or off.
+        </p>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <img src="images/HotKeys Screenshot-1.png" alt="CADD300 Modern HotKeys popup showing the 5-column layout of all keyboard shortcuts" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
         </div>
     </div>
 </section>

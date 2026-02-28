@@ -217,7 +217,7 @@
         /* ===== PCB SECTION ===== */
         .pcb-features {
             display: grid; grid-template-columns: 1fr 1fr;
-            gap: 48px; align-items: center;
+            gap: 48px; align-items: stretch;
         }
         .pcb-pipeline {
             display: flex; align-items: center; gap: 12px;
@@ -849,20 +849,16 @@
 
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div class="img-placeholder gallery-img">
-                    [IMAGE: PCB board layout (e.g., Hardy MPC preamp board)<br>
-                    or imported Eagle board design.<br>
-                    Shows trace routing, component placement, layer colors]
+                <div class="gallery-img">
+                    <img src="images/SparkFun RedBoard c3-1.png" alt="SparkFun RedBoard PCB layout imported from Eagle into CADD300 Modern, showing copper traces, component placement, and layer colors" style="width: 100%; border-radius: 8px;">
                 </div>
                 <p class="gallery-caption">PCB board layout &mdash; imported from Eagle, ready for Gerber export</p>
             </div>
             <div class="gallery-item">
-                <div class="img-placeholder gallery-img">
-                    [IMAGE: Mechanical part drawing with dimensions<br>
-                    Shows precision drafting: witness lines, tolerances, hatching.<br>
-                    Recommended: A dimensioned part from the Hardy drawings]
+                <div class="gallery-img">
+                    <img src="images/Ucamco SparkFun RedBoard.png" alt="SparkFun RedBoard Gerber files displayed in the Ucamco Reference Gerber Viewer, showing multi-layer PCB with copper traces, silkscreen, solder mask, and drill files exported from CADD300 Modern" style="width: 100%; border-radius: 8px;">
                 </div>
-                <p class="gallery-caption">Mechanical part with full dimensioning and section hatching</p>
+                <p class="gallery-caption">Gerber output verified in Ucamco Reference Viewer &mdash; Eagle &rarr; C3 &rarr; fabrication-ready</p>
             </div>
             <div class="gallery-item">
                 <div class="gallery-img">
@@ -881,12 +877,10 @@
         <!-- ADDITIONAL GALLERY ROW -->
         <div class="gallery-grid" style="margin-top: 24px;">
             <div class="gallery-item">
-                <div class="img-placeholder gallery-img">
-                    [IMAGE: Hydraulic or electrical schematic<br>
-                    Shows symbols, connection lines, part labels.<br>
-                    Or: DXF import round-trip example]
+                <div class="gallery-img">
+                    <img src="images/flowchart-autoroam.png" alt="Monthly Settlement Loading &amp; Processing flowchart — Tensegrity AutoRoam, decision diamonds, process boxes, backup and restore logic" style="width: 100%; border-radius: 8px;">
                 </div>
-                <p class="gallery-caption">Schematic design with symbol library and annotations</p>
+                <p class="gallery-caption">Process flowchart &mdash; Tensegrity AutoRoam settlement system</p>
             </div>
             <div class="gallery-item">
                 <div class="img-placeholder gallery-img">
@@ -944,16 +938,12 @@
                     C3 preserves access to your Eagle designs and gives you a direct path to fabrication.
                 </div>
             </div>
-            <div>
-                <div class="img-placeholder" style="min-height: 320px; margin-bottom: 16px;">
-                    [IMAGE: Eagle board imported into C3<br>
-                    showing component outlines, traces, pads, silkscreen text.<br>
-                    Recommended: SparkFun or Adafruit board import]
+            <div style="display: flex; flex-direction: column;">
+                <div style="margin-bottom: 16px;">
+                    <img src="images/SparkFun RedBoard c3-1.png" alt="SparkFun RedBoard PCB imported from Eagle into CADD300 Modern, showing copper traces, component pads, silkscreen text, and multi-layer transparency view" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
                 </div>
-                <div class="img-placeholder" style="min-height: 200px;">
-                    [IMAGE: Gerber Export Sheet in C3<br>
-                    showing the board setup panel with layer mapping,<br>
-                    extension modes, and copper layer selection]
+                <div style="flex: 1; display: flex;">
+                    <img src="images/Gerber RS-274X Export Sheet.png" alt="CADD300 Modern Gerber RS-274X Export dialog showing Board Setup with copper layers, units, and default trace width, plus Layer Mapping table with 10 Gerber layer types, C3 layer numbers, and file extensions" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); object-fit: contain; object-position: top;">
                 </div>
             </div>
         </div>
